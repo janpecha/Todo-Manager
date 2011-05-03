@@ -1,0 +1,142 @@
+/* CSS dokument pro czTodo - implicitní vzhled - (c) Jan Pecha, 2010 */
+
+body {
+    font-family: Verdana, sans-serif;
+    margin: 0em;
+}
+
+#telo {
+    width: 48em;
+    margin-left: auto;
+    margin-right:auto;
+    /*padding-bottom: 4em;*/
+    margin-bottom: 4em;
+}
+
+#addform {
+    line-height: 1.5em;
+    font-size: 0.8em;
+    position: relative;
+}
+
+#addform .addtext, .todoitem textarea {
+    width: 90%;
+    height: 6em;
+    font-family: Verdana, sans-serif;
+    line-height: 1.2em;
+}
+
+#addform .addsubmit {
+    width: 8%;
+    height: 6em;
+    position: absolute;
+    top: 0.2em;
+}
+
+.todoitem {
+    border: 1px solid #EEEEEE;
+    font-size: 0.8em;
+   /* line-height: 1.5em;*/
+    padding: 0.5em 1em 0.8em;
+    margin: 0.5em 0em;
+    font-family: Verdana, sans-serif;
+}
+
+.todoitem pre {
+	margin: 0;
+	padding: 0;
+	padding-bottom: 0.2em;
+	font-family: Verdana, sans-serif;
+	line-height: 1.5em;
+	white-space: pre-wrap;
+}
+
+.todoitem .more {
+	display: none;
+}
+
+.onlyDone {
+	border-color: #EEEEEE;
+}
+
+.inprogress, .onlyInProgress {
+    background: #ffff99;
+    background: #FBEA6F;
+    border-color: #ECCF06;
+}
+
+.deferred, .onlyDeferred {
+	background: #bfe5fe;
+	border-color: #67c1fb;
+	color: #64c0fd;
+	color: #30abfc;
+}
+
+.panel {
+    font-size: 0.8em;
+    text-align: right;
+}
+
+.panel a {
+    margin-left: 0.2em;
+}
+
+.inprogress:hover {
+    background: #FCEE8D;
+    background: #FCED85;
+}
+
+.done {
+    color: silver;
+}
+
+.done:hover {
+    border-color: silver;
+    color: black;
+    background: #F7F7F7;
+}
+
+#topbar {
+	position: relative;
+	font-size: 0.8em;
+}
+
+#topmenu {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+}
+
+#topmenu a.onlyInProgress, #topmenu a.onlyDone, #topmenu a.onlyDeferred, #topmenu a.showAll {
+	display: inline-block;
+	width: 1em;
+	height: 1em;
+	border-width: 1px;
+	border-style: solid;
+	position: relative;
+	bottom: -0.1em;
+}
+
+.onlyInProgress span, .onlyDone span, .onlyDeferred span, .showAll span {
+	display: none;
+}
+
+#topmenu .showAll {
+	border-color: #ECCF06;
+}
+
+#stat {
+	color: silver;
+	display: inline-block;
+	border-left: 1px solid silver;
+	padding-left: 0.4em;
+}
+
+h1,h2 {
+    font-weight: normal;
+    font-family: "Trebuchet MS", sans-serif;
+}
+
+h2 {
+	font-size: 1.9em;
+}
