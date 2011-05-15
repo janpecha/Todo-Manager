@@ -247,6 +247,11 @@
 		public function templateShowTodo(array $todo)
 		{
 			$dir = self::escape($this->url->dir());
+			$querystring = '';
+			if($_SERVER['QUERY_STRING'])
+			{
+				$querystring = '?' . $_SERVER['QUERY_STRING'];
+			}
 		?>
 			<div id="todo-<?php echo self::escape($todo['id']); ?>" class="todoitem<?php if(isset(self::$enabledState[$todo['state']])){ echo ' '.self::$enabledState[$todo['state']]; } ?>">
 				<pre><?php echo self::escape($todo['text']); ?></pre>
@@ -258,24 +263,24 @@
 	if($todo['state'] !== 'h')
 	{
 ?>
-					<a href="<?php echo $dir ?>/cs/<?php echo self::escape($todo['id'] . '_' . $todo['state']); ?>/h/"><?php echo self::escape($this->translate['done']); ?></a>
+					<a href="<?php echo $dir ?>/cs/<?php echo self::escape($todo['id'] . '_' . $todo['state']); ?>/h/<?php echo $querystring ?>"><?php echo self::escape($this->translate['done']); ?></a>
 <?php
 		if($todo['state'] !== 'd')
 		{
 ?>
-					<a href="<?php echo $dir ?>/cs/<?php echo self::escape($todo['id'] . '_' . $todo['state']); ?>/d/"><?php echo self::escape($this->translate['defer']); ?></a>
+					<a href="<?php echo $dir ?>/cs/<?php echo self::escape($todo['id'] . '_' . $todo['state']); ?>/d/<?php echo $querystring ?>"><?php echo self::escape($this->translate['defer']); ?></a>
 <?php
 		}
 		else
 		{
 ?>
-					<a href="<?php echo $dir ?>/cs/<?php echo self::escape($todo['id'] . '_' . $todo['state']); ?>/u/"><?php echo self::escape($this->translate['restore']); ?></a>
+					<a href="<?php echo $dir ?>/cs/<?php echo self::escape($todo['id'] . '_' . $todo['state']); ?>/u/<?php echo $querystring ?>"><?php echo self::escape($this->translate['restore']); ?></a>
 <?php
 		}
 	}
 ?>
 					
-					<a href="<?php echo $dir ?>/de/<?php echo self::escape($todo['id'] . '_' . $todo['state']); ?>/"><?php echo self::escape($this->translate['delete']); ?></a>
+					<a href="<?php echo $dir ?>/de/<?php echo self::escape($todo['id'] . '_' . $todo['state']); ?>/<?php echo $querystring ?>"><?php echo self::escape($this->translate['delete']); ?></a>
 					
 					<div class="more">
 						<a href="#"><?php echo self::escape($this->translate['print']); ?></a>
@@ -318,10 +323,17 @@
 		public function redirect($todoId = '')		/*$url, $code = 303*/
 		{
 			$url = (($this->url->https()) ? 'https':'http').'://'.$this->url->server().$this->url->dir().'/';
+			
+			if($_SERVER['QUERY_STRING'])
+			{
+				$url.= '?' . $_SERVER['QUERY_STRING'];
+			}
+			
 			if($todoId)
 			{
 				$url.= "#todo-" . substr($todoId, 0, -2);
 			}
+			
 			header('Location: '.$url, TRUE, 303);
             die('Pro pokracovani prosim <a href="'.htmlSpecialChars($url).'">kliknete sem</a>.');
 		}

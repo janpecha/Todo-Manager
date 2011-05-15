@@ -30,45 +30,7 @@
 	}
 
 	$manager->run();
-	
- /*   if(Todo::$url->part(0) == 'splneno' && Todo::$url->num() == 2){ // splneno
-        $soubor = Todo::$dir.'/'.Todo::$url->part(1);
-        if(file_exists($soubor)){
-            rename($soubor,Todo::$dir.'/'.substr(Todo::$url->part(1),0,-1).'h');
-            Todo::Redirect(Todo::$url->dir().'/');
-            //header('Location: '.Todo::$url->dir().'/', TRUE, 303);
-            //die('Pro pokračování prosím <a href="'.htmlSpecialChars($url).'">klikněte sem</a>.');
-        }
-    }
-    
-    if(Todo::$url->part(0) == 'smazat' && Todo::$url->num() == 2){ // smazat
-        $soubor = Todo::$dir.'/'.Todo::$url->part(1);
-        if(file_exists($soubor)){
-            //rename($soubor,Todo::$dir.'/'.substr(Todo::$url->part(1),0,-1).'h');
-            unlink('Safe://'.$soubor);
-            Todo::Redirect(Todo::$url->dir().'/');
-            //header('Location: '.Todo::$url->dir().'/', TRUE, 303);
-            //die('Pro pokračování prosím <a href="'.htmlSpecialChars($url).'">klikněte sem</a>.');
-        }
-    }
-    
-    if(isset($_POST['addsmt']) && $_POST['addsmt'] == 'k8ljasf' && isset($_POST['ukol'])){
-        //echo Todo::$url->link();
-        //$f = fopen(Todo::$dir.'/'.time().'_u','w');
-        //    fwrite($f,$_POST['ukol']);
-        //fclose($f);
-        file_put_contents(Todo::$dir.'/'.time().'_u',$_POST['ukol']);
-        Todo::$url->redirect(array('code' => 303));
-    }*/
-    
 
-    /*  Change Log
-        30.10.2010 - po kliknutí na "Splněno" odskok na splněný úkol (pomocí #<id>)
-        04.11.2010 - pridana public static function Redirect($url,$code = 303)
-        04.11.2010 - pri odeslani formulare upraven redirect -> ted posila kod 303
-        04.11.2010 - pri odeslani formulare je poznamka ukladana pomoci file_put_contents()
-    
-    */
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="cs" lang="cs">
   <head>
@@ -82,7 +44,7 @@
   <body>
 	<div id="telo">
 		<h1><?php echo TodoManager::escape(TODO_NAME); ?></h1>
-		<form action="<?php echo $manager->getUrl()->dir(); ?>/at/" method="post" id="addform">
+		<form action="<?php echo $manager->getUrl()->dir(); ?>/at/<?php if($manager->getUrl()->querystring()){ echo '?' . $manager->getUrl()->querystring(); } ?>" method="post" id="addform">
 			<p><input type="hidden" name="addsmt" value="k8ljasf" />
 			<textarea rows="4" cols="50" name="ukol" class="addtext"></textarea>
 			<input type="submit" name="odeslano" value="<?php echo TodoManager::escape($manager->getText('add')); ?>" class="addsubmit" /></p>
@@ -118,7 +80,7 @@
 					
 					if(isset($stats['u']))
 					{
-						echo $stats['h'];
+						echo $stats['u'];
 					}
 					else
 					{
