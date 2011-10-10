@@ -37,6 +37,7 @@
 	  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 	  <meta name="description" content="Todo List v2.0" />
 	  <meta name="author" content="Jan Pecha (c) 2010-2011" />
+	  <meta name="robots" content="noindex, nofollow" />
 	  <link rel="stylesheet" type="text/css" media="screen" href="./css/screen.css" />
 	  <link rel="stylesheet" type="text/css" media="print" href="./css/print.css" />
 	  <title><?php echo TodoManager::escape(TODO_NAME); ?></title>
