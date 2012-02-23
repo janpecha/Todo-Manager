@@ -58,6 +58,11 @@
 					continue;
 				}
 				
+				if(isset($t[0]) && $t[0] === '.')	// .htaccess file, etc.
+				{
+					continue;
+				}
+				
 				$id = substr($t, 0, -2);
 				
 				$todos[$id] = array(
