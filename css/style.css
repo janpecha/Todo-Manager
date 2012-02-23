@@ -1,4 +1,4 @@
-/* CSS dokument pro czTodo - implicitní vzhled - (c) Jan Pecha, 2010 */
+/* CSS dokument pro czTodo - implicitní vzhled - (c) Jan Pecha, 2010-2012 */
 
 body {
     font-family: Verdana, sans-serif;
@@ -26,11 +26,24 @@ body {
     line-height: 1.2em;
 }
 
+#addform .addtext:focus, .todoitem textarea:focus {
+	height: 30em;
+}
+
 #addform .addsubmit {
     width: 8%;
     height: 6em;
     position: absolute;
     top: 0.2em;
+}
+
+.panel {
+    font-size: 0.8em;
+    text-align: right;
+}
+
+.panel a {
+    margin-left: 0.2em;
 }
 
 .todoitem {
@@ -70,15 +83,26 @@ body {
 	border-color: #67c1fb;
 	color: #64c0fd;
 	color: #30abfc;
+	/* */
+/*	background: #F2FAFF;*/
+/*	background: #f7fcff;*/
+/*	border-color: #e7ebee;*/
+/*	color: #d9dbdd;*/
+/*	color: #d0d8dd;*/
+/*	background: #f0f3f5;*/
+	background: #f0f9ff;
+	border-color: #e2f1fb;
+	border-color: #d3ebfb;
+	color: #c7e7fc;
+	color: #bae2fc;
 }
 
-.panel {
-    font-size: 0.8em;
-    text-align: right;
-}
-
-.panel a {
-    margin-left: 0.2em;
+.deferred:hover {
+	background: #bfe5fe;
+	border-color: #67c1fb;
+	color: #64c0fd;
+	color: #30abfc;
+	color: #009aff;
 }
 
 .inprogress:hover {
@@ -109,7 +133,7 @@ body {
 
 #topmenu a.onlyInProgress, #topmenu a.onlyDone, #topmenu a.onlyDeferred, #topmenu a.showAll {
 	display: inline-block;
-	width: 1em;
+	width: 3em;
 	height: 1em;
 	border-width: 1px;
 	border-style: solid;
@@ -122,7 +146,7 @@ body {
 }
 
 #topmenu .showAll {
-	border-color: #ECCF06;
+	border-color: #ECCF06 #eee #67c1fb;
 }
 
 #stat {

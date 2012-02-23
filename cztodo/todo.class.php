@@ -6,7 +6,7 @@
 	* @link			janpecha.iunas.cz
 	* @copyright	(c) 2011 Jan Pecha
 	* @version		2.0.0.1a
-	* @todo			01.05.2011 - ?? pro datum a cas misto nazvu souboru pouzit jeho ctime ??
+	* @todo			[DEL]	01.05.2011 - ?? pro datum a cas misto nazvu souboru pouzit jeho ctime ??
 	*/
 	
 	class TodoModel
@@ -104,7 +104,7 @@
 		
 		public function __construct()
 		{
-			$this->translateCzech();
+			$this->translateCzech();	// default language settings
 			
 			$this->model = new TodoModel();
 			
@@ -132,7 +132,7 @@
 			$route = array(
 				'cs' => 'actionChangeState',
 				'de' => 'actionDelete',
-				'at' => 'actionAddTask'
+				'at' => 'actionAddTask',
 			);
 			
 			$currentRoute = false;

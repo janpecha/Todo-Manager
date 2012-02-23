@@ -20,7 +20,7 @@
 	{
 		SafeStream::register();
 		$manager = new TodoManager();
-		TodoModel::setProtocol('safe://');	// ne moc hezke hazet to sem
+		TodoModel::setProtocol('safe://');
 		TodoModel::setDir(LIB_DIR . '/todos');
 	}
 	else
@@ -38,8 +38,7 @@
 	  <meta name="description" content="Todo List v2.0" />
 	  <meta name="author" content="Jan Pecha (c) 2010-2011" />
 	  <meta name="robots" content="noindex, nofollow" />
-	  <link rel="stylesheet" type="text/css" media="screen" href="./css/screen.css" />
-	  <link rel="stylesheet" type="text/css" media="print" href="./css/print.css" />
+	  <link rel="stylesheet" type="text/css" media="all" href="./css/style.css" />
 	  <title><?php echo TodoManager::escape(TODO_NAME); ?></title>
   </head>
   <body>
@@ -55,10 +54,10 @@
 			<h2><?php echo TodoManager::escape($manager->getText('tasks')); ?></h2>
 		
 			<div id="topmenu">
-				<a href="<?php echo $manager->getUrl()->dir(); ?>" class="showAll" title="Všechny"><span>Všechny</span></a>
-				<a href="?state=u" class="onlyInProgress" title="Pouze čekající"><span>Pouze čekající</span></a>
-				<a href="?state=h" class="onlyDone" title="Pouze splněné"><span>Pouze splněné</span></a>
-				<a href="?state=d" class="onlyDeferred" title="Pouze odložené"><span>Pouze odložené</span></a>
+				<a href="<?php echo $manager->getUrl()->dir(); ?>" class="showAll" title="Všechny úkoly"><span>Všechny úkoly</span></a>
+				<a href="?state=u" class="onlyInProgress" title="Pouze nesplněné úkoly"><span>Pouze nesplněné úkoly</span></a>
+				<a href="?state=h" class="onlyDone" title="Pouze splněné úkoly"><span>Pouze splněné úkoly</span></a>
+				<a href="?state=d" class="onlyDeferred" title="Pouze odložené úkoly"><span>Pouze odložené úkoly</span></a>
 <?php
 	ob_start();
 	$stats = $manager->showAll();
