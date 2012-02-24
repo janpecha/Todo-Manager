@@ -9,7 +9,6 @@ body {
     width: 48em;
     margin-left: auto;
     margin-right:auto;
-    /*padding-bottom: 4em;*/
     margin-bottom: 4em;
 }
 
@@ -24,6 +23,13 @@ body {
     height: 6em;
     font-family: Verdana, sans-serif;
     line-height: 1.2em;
+}
+
+textarea {
+	background: #fff;
+	border: 1px solid silver;
+	border-radius: 4px;
+	padding: 0.6em;
 }
 
 #addform .addtext:focus, .todoitem textarea:focus {
@@ -49,10 +55,10 @@ body {
 .todoitem {
     border: 1px solid #EEEEEE;
     font-size: 0.8em;
-   /* line-height: 1.5em;*/
     padding: 0.5em 1em 0.8em;
     margin: 0.5em 0em;
     font-family: Verdana, sans-serif;
+   	border-radius: 4px;
 }
 
 .todoitem pre {
@@ -73,40 +79,23 @@ body {
 }
 
 .inprogress, .onlyInProgress {
-    background: #ffff99;
     background: #FBEA6F;
     border-color: #ECCF06;
 }
 
 .deferred, .onlyDeferred {
-	background: #bfe5fe;
-	border-color: #67c1fb;
-	color: #64c0fd;
-	color: #30abfc;
-	/* */
-/*	background: #F2FAFF;*/
-/*	background: #f7fcff;*/
-/*	border-color: #e7ebee;*/
-/*	color: #d9dbdd;*/
-/*	color: #d0d8dd;*/
-/*	background: #f0f3f5;*/
 	background: #f0f9ff;
-	border-color: #e2f1fb;
 	border-color: #d3ebfb;
-	color: #c7e7fc;
 	color: #bae2fc;
 }
 
 .deferred:hover {
 	background: #bfe5fe;
 	border-color: #67c1fb;
-	color: #64c0fd;
-	color: #30abfc;
-	color: #009aff;
+	color: #000;
 }
 
 .inprogress:hover {
-    background: #FCEE8D;
     background: #FCED85;
 }
 
@@ -139,6 +128,7 @@ body {
 	border-style: solid;
 	position: relative;
 	bottom: -0.1em;
+	border-radius: 4px;
 }
 
 .onlyInProgress span, .onlyDone span, .onlyDeferred span, .showAll span {
