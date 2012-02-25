@@ -72,6 +72,10 @@ textarea {
 	white-space: pre-wrap;
 }
 
+.todoitem:focus, .todoitem:hover {
+	border-color: red;
+}
+
 .todoitem .more {
 	display: none;
 }
