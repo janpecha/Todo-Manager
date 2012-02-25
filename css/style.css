@@ -1,5 +1,7 @@
 /* CSS dokument pro czTodo - implicitní vzhled - (c) Jan Pecha, 2010-2012
- * @version		2012.02.24-1
+ *
+ * @version		2012.02.25-1
+ * @author		Jan Pecha, <janpecha@email.cz>
  */
 
 body {
@@ -70,10 +72,6 @@ textarea {
 	font-family: Verdana, sans-serif;
 	line-height: 1.5em;
 	white-space: pre-wrap;
-}
-
-.todoitem:focus, .todoitem:hover {
-	border-color: red;
 }
 
 .todoitem .more {
